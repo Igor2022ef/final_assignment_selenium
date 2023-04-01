@@ -11,6 +11,21 @@ class LoginPage(BasePage):
         self.should_be_login_form()
         self.should_be_register_form()
 
+    #Посмотри, как рализовать декаротор внутри класса, видимо или классметод или статикметод
+          #
+          # self.helper1()
+    #     self.wrapper()
+    #
+    # def helper1(func):
+    #     def wrapper(*args, **kwargs):
+    #         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+    #         login_link.click()
+    #         res = func(*args, **kwargs)
+    #         return res
+    #     return wrapper
+    #
+    # @helper1
+
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
