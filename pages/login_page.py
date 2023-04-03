@@ -26,16 +26,16 @@ class LoginPage(BasePage):
     #
     # @helper1
 
+    # реализуйте проверку на корректный url адрес
     def should_be_login_url(self):
-        # реализуйте проверку на корректный url адрес
+
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(3)
         assert "login" in self.browser.current_url,  "login world not found"
 
-
+    # реализуйте проверку, что есть форма логина на странице
     def should_be_login_form(self):
-        # реализуйте проверку, что есть форма логина на странице
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(5)
@@ -43,9 +43,8 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.login_form_1)
         assert self.is_element_present(By.CSS_SELECTOR, "#login_form"), "login form is not presented"
 
-
+    # реализуйте проверку, что есть форма регистрации на странице
     def should_be_register_form(self):
-        # реализуйте проверку, что есть форма регистрации на странице
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(5)

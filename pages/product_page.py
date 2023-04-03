@@ -18,7 +18,9 @@ class ProductObject(BasePage):
         name_product = input4.text
         input2 = self.browser.find_element(*ProductObjectLocators.check_name_in_basket)
         name_purchase = input2.text
-        assert name_product in name_purchase, "sad story: the name is not correct"
+        # print(f"Имя товара: {name_product},{len(name_product)} ")
+        # print(f"Имя покупки: {name_purchase[2:-31]}, {len(name_purchase[2:-31])}")
+        assert name_product == name_purchase[2:-31], "sad story: the name is not correct"
 
 
     #Проверка, что элемент элемент не появляется на странице в течение заданного времени

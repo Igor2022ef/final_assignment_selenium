@@ -27,7 +27,6 @@ class BasePage():
         #time.sleep(2)
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
-        # print(f"Это тот answer который не вводится автоматичеки: {answer}")
         alert.send_keys(answer)
         alert.accept()
         try:

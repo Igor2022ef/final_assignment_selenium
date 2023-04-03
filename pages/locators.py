@@ -10,7 +10,6 @@ class LoginPageLocators():
 
 class ProductObjectLocators():
     add_basket = (By.CSS_SELECTOR, ".btn-add-to-basket")
-    # check_price = (By.CSS_SELECTOR, ".price_color")
     #Имя желаемого товара
     name_wished_thing = (By.CSS_SELECTOR, "[class='col-sm-6 product_main'] > h1")
     #Цена желаемого товара
