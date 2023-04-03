@@ -1,7 +1,10 @@
-from selenium.common.exceptions import NoSuchElementException
+from telnetlib import EC
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.common.exceptions import NoAlertPresentException
 import math
 import time
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 class BasePage():
     def __init__(self, browser, url,timeout=10):
@@ -21,10 +24,10 @@ class BasePage():
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
-        time.sleep(3)
+        #time.sleep(2)
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
-        time.sleep(3)
+        # print(f"Это тот answer который не вводится автоматичеки: {answer}")
         alert.send_keys(answer)
         alert.accept()
         try:
@@ -34,4 +37,21 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    # Проверка, что элемент элемент не появляется на странице в течение заданного времени
+    def is_not_element_present(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return True
+        return False
+
+    # Проверка, элемент исчезает со страницы в течение заданного времени
+    def is_disappeared(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+                until_not(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return False
+        return True
 

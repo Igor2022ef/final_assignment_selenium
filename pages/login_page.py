@@ -45,7 +45,7 @@ class LoginPage(BasePage):
 
 
     def should_be_register_form(self):
-        # реализуйте проверку, реализуйте проверку, что есть форма регистрации на странице
+        # реализуйте проверку, что есть форма регистрации на странице
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(5)
