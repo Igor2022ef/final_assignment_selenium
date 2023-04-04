@@ -28,7 +28,6 @@ class LoginPage(BasePage):
 
     # реализуйте проверку на корректный url адрес
     def should_be_login_url(self):
-
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(3)

@@ -25,11 +25,11 @@ class ProductObject(BasePage):
 
     #Проверка, что элемент элемент не появляется на странице в течение заданного времени
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductObjectLocators.SUCCESS_MESSAGE), \
+        assert self.is_not_element_present(*ProductObjectLocators.check_name_in_basket), \
             "Success message is presented, but should not be"
     # Проверка, элемент исчезает со страницы в течение заданного времени
     def should_disappeared_message(self):
-        assert self.is_disappeared(*ProductObjectLocators.SUCCESS_MESSAGE), \
+        assert self.is_disappeared(*ProductObjectLocators.check_name_in_basket), \
            "Success message is disappeared, but should not be"
 
 

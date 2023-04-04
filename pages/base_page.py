@@ -1,4 +1,5 @@
-from telnetlib import EC
+# from telnetlib import EC
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.common.exceptions import NoAlertPresentException
 import math
