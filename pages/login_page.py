@@ -1,6 +1,7 @@
 import time
 from .locators import MainPageLocators
 from .base_page import BasePage
+from .main_page import *
 from .locators import LoginPageLocators
 from selenium.webdriver.common.by import By
 
@@ -38,17 +39,16 @@ class LoginPage(BasePage):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(5)
-        print({*LoginPageLocators.login_form_1})
-        self.browser.find_element(*LoginPageLocators.login_form_1)
-        assert self.is_element_present(By.CSS_SELECTOR, "#login_form"), "login form is not presented"
+        assert self.is_element_present(*LoginPageLocators.login_form_1), "login form is not presented"
+
+
 
     # реализуйте проверку, что есть форма регистрации на странице
     def should_be_register_form(self):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
         time.sleep(5)
-        self.browser.find_element(*LoginPageLocators.register_form)
-        assert self.is_element_present(By.CSS_SELECTOR, "#register_form"), "register form is not presented"
+        assert self.is_element_present(*LoginPageLocators.register_form), "register form is not presented"
 
 
 
