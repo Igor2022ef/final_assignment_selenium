@@ -1,3 +1,3 @@
 # final_assignment_selenium
-I decide tasks from step 4 of Stepic course: "Автоматизация тестирования с помощью Selenium 
-и Python"
+This is a final assignment of selenium training course "Автоматизация тестирования с помощью Selenium 
+и Python" It is imposible to receive the sertificat of the end of the cours without the correct decision
